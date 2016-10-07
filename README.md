@@ -1,2 +1,2 @@
 # Queste
-Task-managing RPG-like Android App
+“Queste” is a task-managing rpg-like Android app. This product’s main goal is to help users organize their duties and plan their life in a game-like encouraging manner. As in real life, with each completed task users gain experience and train their skills in multiple fields of knowledge. Tasks, their difficulty, skills required and experience gained are set by users, so it develops users’ quality of estimation of their own skills and abilities.
