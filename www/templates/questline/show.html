@@ -1,0 +1,19 @@
+<ion-view view-title="Questline" name="login-view">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <ion-list>
+      <ion-item class="item-icon-right" ng-repeat="tasks in plan">
+        {{task}}
+        <i class="icon ion-edit"></i>
+      </ion-item>
+    </ion-list>
+    <button class="button button-block button-balanced" ui-sref="app.quest_new">
+      Add Task
+    </button>
+     <button class="button button-block button-assertive">
+      Delete Plan
+    </button>
+  </ion-content>
+</ion-view>
