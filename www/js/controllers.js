@@ -1,12 +1,8 @@
-app.controller('MainCtrl', function($scope){
-
-});
-
 app.controller('SigninCtrl', function($scope, $state){
 	$scope.register = function(data){
 		auth.createUserWithEmailAndPassword(data.email, data.password).then(function(result) {
 			console.log("User account successfully created.");
-			$state.go('profile');
+			$state.go('app.profile');
 		}).catch(function(error) {
 			console.log("Registration Failed!", error);
 		});
@@ -15,7 +11,7 @@ app.controller('SigninCtrl', function($scope, $state){
 	$scope.login = function(data){
 		auth.signInWithEmailAndPassword(data.email, data.password).then(function(result) {
 			console.log("Authenticated successfully.");
-			$state.go('profile');
+			$state.go('app.profile');
 		}).catch(function(error) {
 			console.log("Login Failed!", error);
 		});
@@ -28,31 +24,14 @@ app.controller('SigninCtrl', function($scope, $state){
 	sign_with_popup = function(provider){
 		auth.signInWithPopup(provider).then(function(result) {
 			console.log("Authenticated successfully.");
-			$state.go('profile');
+			$state.go('app.profile');
 		}).catch(function(error) {
 			console.log("Login Failed!", error);
 		});
 	}
 });
 
-
-app.controller('ProfileCtrl', function($scope, $state){
-
-	$scope.go_to_settings = function(){
-		$state.go('settings');
-	}
-
-	$scope.logout = function(){
-		if(auth.currentUser){
-			auth.signOut().then(function(result) {
-				console.log("User logged out.");
-				$state.go('signin');
-			});
-		};
-	};
-});
-
-app.controller('SettingsCtrl', function($scope, $state){
+app.controller('AppCtrl', function($scope, $state){
 	$scope.data = {};
 	$scope.providers = {};
 
@@ -79,6 +58,15 @@ app.controller('SettingsCtrl', function($scope, $state){
 		});
 	}
 
+	$scope.logout = function(){
+		if(auth.currentUser){
+			auth.signOut().then(function(result) {
+				console.log("User logged out.");
+				$state.go('signin');
+			});
+		};
+	};
+
 	$scope.link_google = function(){
 		link_with_popup(new firebase.auth.GoogleAuthProvider());
 	};
@@ -97,9 +85,5 @@ app.controller('SettingsCtrl', function($scope, $state){
 
 	$scope.change_password = function(data){
 		auth.currentUser.updatePassword(data.password);
-	}
-
-	$scope.go_to_profile = function(){
-		$state.go('profile');
 	}
 });

@@ -5,17 +5,35 @@ app.config(function ($stateProvider, $urlRouterProvider){
     templateUrl: 'templates/signin.html',
     controller: 'SigninCtrl'
   })
-  .state('profile',{
+  .state('app',{
+    url: "/app",
+    abstract: true,
+    controller: 'AppCtrl',
+    templateUrl: "templates/menu.html"
+  })
+  .state('app.profile', {
     url: '/profile',
-    templateUrl: 'templates/profile.html',
-    controller: 'ProfileCtrl'
+    views: {
+      'menuContent' :{
+        templateUrl: "templates/profile.html"
+      }
+    },
+    onEnter: function(){
+      console.log("profile");
+    }
   })
-  .state('settings',{
+  .state('app.settings', {
     url: '/settings',
-    templateUrl: 'templates/settings.html',
-    controller: 'SettingsCtrl'
+    views: {
+      'menuContent' :{
+        templateUrl: "templates/settings.html"
+      }
+    },
+    onEnter: function(){
+      console.log("settings");
+    }
   })
-  
+
   $urlRouterProvider.otherwise(function ($injector, $location) {
     var $state = $injector.get("$state");
     $state.go("signin");
