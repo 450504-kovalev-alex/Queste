@@ -1,0 +1,50 @@
+<ion-view view-title="Linked Accounts" name="login-view">
+	<ion-content class="padding">
+		<div class="list list-inset">
+			<label class="item item-input">
+				<input type="text" placeholder="Email" ng-model="data.email">
+			</label>
+			<button class="button button-block button-stable" ng-click="change_email(data)">
+				Change email
+			</button>
+			<label class="item item-input">
+				<input type="password" placeholder="Password" ng-model="data.password">
+			</label>
+			<button class="button button-block button-stable" ng-click="change_password(data)">
+				Change password
+			</button>
+		</div>
+		<div class="list card">
+			<div class="item item-icon-left">
+				<i class="icon ion-email"></i>
+				<div class="row" ng-if="providers.password">
+					<div class="col col-center">
+						<div class="row">{{providers.password.email}}</div>
+					</div>
+				</div>
+				<div ng-if="!(providers.password)">
+					<button class="button button-block button-stable" ng-click="go_to_settings()">
+						Set password
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="list card">
+			<div class="item item-icon-left">
+				<i class="icon ion-social-googleplus"></i>
+				<div class="row" ng-if="providers.google">
+					<div class="col col-center">
+						<div class="row">{{providers.google.displayName}}</div>
+						<div class="row">{{providers.google.email}}</div>
+					</div>
+				</div>
+				<div ng-if="!(providers.google)">
+					<button class="button button-block button-stable" ng-click="link_google()">
+						Add Google account
+					</button>
+				</div>
+			</div>
+		</div>
+		<button class="button button-outline icon-left ion-chevron-left button-positive" ng-click="go_to_profile()">Back</button>
+	</ion-content>
+</ion-view>

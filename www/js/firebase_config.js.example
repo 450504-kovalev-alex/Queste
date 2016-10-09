@@ -1,0 +1,11 @@
+var config = {
+  apiKey: "YOUR API KEY",
+  authDomain: "YOUR AUTH DOMAIN",
+  databaseURL: "YOUR DATABASE URL",
+  storageBucket: "YOUR STORAGE BUCKET",
+  messagingSenderId: "YOUR MESSAGING SENDER ID"
+};
+firebase.initializeApp(config);
+
+var rootRef = firebase.database().ref();
+var auth = firebase.auth();
