@@ -3,21 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
     <title>Queste</title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
+    <link href="css/pace.css" rel="stylesheet">
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>
+    <script src="lib/firebase/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
-
-
+    <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
+    <script src="lib/ng-tags-input/ng-tags-input.min.js"></script>
+    <script src="lib/pace.min.js"></script>
+    <script src="lib/angular-elastic/elastic.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -26,6 +29,7 @@
     <script src="js/firebase_config.js"></script>
     <script src="js/config.js"></script>
     <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
     <script src="js/angular-mocks.js"></script>
   </head>
   <body ng-app="queste">

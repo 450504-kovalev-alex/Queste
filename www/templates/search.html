@@ -1,0 +1,48 @@
+<ion-view view-title="Search" name="login-view">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="item item-avatar">
+      <label class="item item-input">
+        <input type="text" placeholder="Enter search text" ng-model="search.text" ng-change="onSearchChange()">
+      </label>
+    </div>
+
+    <ion-list ng-if="search.stories.length != 0">
+      <h4 class="title" style="text-align: center;">Found Stories</h4>
+      <ion-item class="item-icon-right" ng-repeat="story in search.stories" ui-sref="app.story({'storyId': story.id})">
+        {{story.name}}
+      </ion-item>
+      <ion-item style="text-align: center;" ng-if="data.stories.length == 0">
+        There are no stories!
+      </ion-item>
+    </ion-list>
+
+    <ion-list ng-if="search.quests.length != 0">
+      <h4 class="title" style="text-align: center;">Found Quests</h4>
+      <ion-item class="item-icon-right" ng-repeat="quest in search.quests" ui-sref="app.quest_show({'questId': quest.id, 'storyId': quest.storyId})">
+        {{quest.name}}
+      </ion-item>
+      <ion-item style="text-align: center;" ng-if="data.quests.length == 0">
+        There are no quests!
+      </ion-item>
+    </ion-list>
+
+    <ion-list ng-if="search.skills.length != 0">
+      <h4 class="title" style="text-align: center;">Found Skills</h4>
+      <ion-item class="item-icon-right" ng-repeat="skill in search.skills" ui-sref="app.skill({'skillId': skill.id})">
+        {{skill.name}}
+      </ion-item>
+      
+    </ion-list>
+
+    <ion-list ng-if="search.skills.length == 0 && search.quests.length == 0 && search.stories.length == 0">
+      <ion-item style="text-align: center;">
+      Nothing Found!
+      </ion-item>
+    </ion-list>
+
+
+  </ion-content>
+</ion-view>

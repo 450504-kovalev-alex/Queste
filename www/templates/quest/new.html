@@ -1,14 +1,83 @@
-<ion-view view-title="Task New" name="login-view">
+<ion-view view-title="Task: {{pageName}}" name="login-view">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="padding">
-     <div class="list">
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Name</span>
-        <input type="text" placeholder="Name">
-      </label>
-      
+    <div class="list">
+     <div class="row row-center">
+        <div class="col-20" style="text-align: center;">
+          <h3>Name</h3>
+        </div>
+        <div class="col">
+          <label class="item item-input">
+            <input type="text" placeholder="Enter Name" ng-model="quest.name">
+          </label>
+        </div>
+      </div>
+      <div class="row row-center">
+        <div class="col-20" style="text-align: center;">
+          <h3>Difficulty</h3>
+        </div>
+        <div class="col">
+          <div class="item range">
+            <i class="icon ion-android-star-outline"></i>
+            <input type="range" name="difficulty" ng-model="quest.difficulty">
+            <i class="icon ion-android-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row row-center">
+        <div class="col-20" style="text-align: center;">
+          <h3>End Date</h3>
+        </div>
+        <div class="col">
+          <button class="button button-block button-outline button-royal" ng-click="openDatePicker()">
+            Select Date
+          </button>
+        </div>
+      </div>
+      <div class="row row-center">
+        <div class="col-20" style="text-align: center;">
+          <h3>Skills</h3>
+        </div>
+        <div class="col">
+          <div class="card">
+            <tags-input placeholder="Enter skills required" ng-model="quest.skills" display-property="name"></tags-input>
+          </div>
+        </div>
+      </div>
+       <div class="row row-center">
+        <div class="col-20" style="text-align: center;">
+          <h3>Description</h3>
+        </div>
+        <div class="col">
+          <div class="card">
+            <textarea placeholder="Enter quest description" style="width:100%;" msd-elastic ng-model="quest.desc"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="button icon-left ion-reply button-block button-dark" ng-click="return()">
+          Back
+        </button>
+      </div>
+      <div class="col">
+        <button class="button icon-left ion-plus-round button-block button-positive" ng-click="saveTask()">
+          {{ newTask ? "Create Quest": "Save Quest" }}
+        </button>
+      </div>
+      <div class="col" ng-if="!newTask">
+        <button class="button icon-left ion-checkmark-round button-block button-balanced" ng-click="finishQuest()">
+          Finish Quest
+        </button>
+      </div>
+      <div class="col" ng-if="!newTask">
+        <button class="button icon-left ion-trash-a button-block button-assertive" ng-click="confirmDelete()">
+          Delete Quest
+        </button>
+      </div>
     </div>
   </ion-content>
 </ion-view>

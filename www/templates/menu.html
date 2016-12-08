@@ -3,32 +3,35 @@
   <ion-pane ion-side-menu-content>
     <ion-nav-bar class="bar-stable">
      <!--  <ion-nav-back-button class="button-clear"><i class="icon ion-chevron-left"></i> Back</ion-nav-back-button> -->
-    </ion-nav-bar>
-    <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
-  </ion-pane>
+   </ion-nav-bar>
+   <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+ </ion-pane>
 
-  <ion-side-menu side="left">
-    <header class="bar bar-header bar-stable">
-      <h1 class="title">Left</h1>
-    </header>
-    <ion-content class="has-header">
-      <ion-list>
-        <ion-item nav-clear menu-close href="#/app/profile">
-          Profile
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/questbook">
-          Questbook
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/skills">
-          Skills
-        </ion-item>
-         <ion-item nav-clear menu-close href="#/app/settings">
-          Settings
-        </ion-item>
-         <ion-item nav-clear menu-close ng-click="logout()">
-          Log Out
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-side-menu>
+ <ion-side-menu side="left">
+  <header class="bar bar-header bar-stable">
+    <h1 class="title">Left</h1>
+  </header>
+  <ion-content class="has-header">
+    <ion-list>
+      <ion-item nav-clear menu-close href="#/app/profile">
+        Profile
+      </ion-item>
+      <ion-item nav-clear menu-close href="#/app/stories">
+        Questbook
+      </ion-item>
+      <ion-item nav-clear menu-close href="#/app/skills">
+        Skills
+      </ion-item>
+      <ion-item nav-clear menu-close href="#/app/search">
+        Search
+      </ion-item>
+      <ion-item nav-clear menu-close href="#/app/settings">
+        Settings
+      </ion-item>
+      <ion-item nav-clear menu-close ng-click="logout()">
+        Log Out
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-side-menu>
 </ion-side-menus>

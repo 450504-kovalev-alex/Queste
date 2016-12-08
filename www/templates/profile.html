@@ -5,32 +5,44 @@
 	<ion-content class="padding">
     <div class="item item-avatar">
       <img src="img/ionic.png">
-      {{providers.google.displayName}}
+      {{data.user.email}}
     </div>
     <div class="item">
-      Level: {{data.level}}
+      Level: {{getLevel()}} ({{data.xp ? data.xp : 0}} xp)
+      <span class="badge badge-calm">{{xp2next(data.xp)}}</span>
+      <progress id="progressbar" max="{{getNextXP()}}" value="{{data.xp}}"> </progress>
     </div>
 
     <ion-list>
-      Skills
-      <ion-item class="item-icon-right" ng-repeat="skill in data.skills" ui-sref="app.skill">
-        {{skill}}
+      <h4 class="title" style="text-align: center;">Skills To Train</h4>
+      <ion-item class="item-icon-right" ng-repeat="skill in get5skills()" ui-sref="app.skill({'skillId': skill.id})">
+        {{skill.name}}
+        <span class="badge badge-assertive">{{xp2next(skill.xp)}}</span>
+      </ion-item>
+      <ion-item style="text-align: center;" ng-if="data.skills.length == 0">
+        There are no skills!
       </ion-item>
     </ion-list>
 
     <ion-list>
-      Plans
-      <ion-item class="item-icon-right" ng-repeat="plan in data.plans" ui-sref="app.questline_show">
-        {{plan}}
+      <h4 class="title" style="text-align: center;">Recent Plans</h4>
+      <ion-item class="item-icon-right" ng-repeat="story in get5stories()" ui-sref="app.story({'storyId': story.id})">
+        {{story.name}}
+      </ion-item>
+      <ion-item style="text-align: center;" ng-if="data.stories.length == 0">
+        There are no stories!
       </ion-item>
     </ion-list>
 
     <ion-list>
-      Tasks
-      <ion-item class="item-icon-right" ng-repeat="task in data.tasks" ui-sref="app.quest_new">
-        {{task}}
+      <h4 class="title" style="text-align: center;">Urgent Tasks</h4>
+      <ion-item class="item-icon-right" ng-repeat="quest in get5quests()" ui-sref="app.quest_show({'questId': quest.id, 'storyId': quest.storyId})">
+        {{quest.name}}
+        <span ng-if="deadlineCheck(quest.endDate)" class="badge badge-assertive">Deadline</span>
+      </ion-item>
+      <ion-item style="text-align: center;" ng-if="data.quests.length == 0">
+        There are no quests!
       </ion-item>
     </ion-list>
-    
 	</ion-content>
 </ion-view>

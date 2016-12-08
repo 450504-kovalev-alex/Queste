@@ -4,8 +4,10 @@
   </ion-nav-buttons>
   <ion-content class="padding">
     <ion-list>
-      <ion-item class="item-icon-right" ng-repeat="skill in data.skills">
-        {{skill}}
+      <h4 class="title" style="text-align: center;">My Skills</h4>
+      <ion-item class="item-icon-right" ng-repeat="skill in data.skills" ui-sref="app.skill({'skillId': skill.id})">
+        {{skill.name}}
+        <span class="badge badge-assertive">{{xp2next(skill.xp)}}</span>
       </ion-item>
     </ion-list>
   </ion-content>

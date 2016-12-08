@@ -1,0 +1,40 @@
+<ion-view view-title="{{quest.name}}" name="login-view">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <h2>{{quest.name}}</h2>
+      </div>
+
+      <div class="item item-body">
+        <p>Started {{getStartDate()}}</p>
+        <p>Deadline {{getEndDate()}}<p>
+      </div>
+      <div class=" row item item-divider">
+        <div class="col">
+          <button class="button icon-left ion-reply button-block button-dark" ng-click="return()">
+            Back
+          </button>
+        </div>
+        <div class="col">
+          <button class="button icon-left ion-edit button-block button-positive" ui-sref="app.quest_edit({'storyId': quest.storyId, 'questId': quest.id})">
+            Edit Quest
+          </button>
+        </div>
+        <div class="col">
+          <button class="button icon-left ion-checkmark-round button-block button-balanced" ng-click="finishQuest()">
+            Finish Quest
+          </button>
+        </div>
+        <div class="col">
+          <button class="button icon-left ion-trash-a button-block button-assertive" ng-click="confirmDelete()">
+            Delete Quest
+          </button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
